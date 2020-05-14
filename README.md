@@ -1,4 +1,4 @@
-# Cache
+# panx-utils
 
 Class with custom functions and utils.
 

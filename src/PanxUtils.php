@@ -1,16 +1,16 @@
 <?php
 /**
  * @name PanxUtils.php
- * @link https://alexkratky.cz                          Author website
+ * @link https://alexkratky.com                         Author website
  * @link https://panx.eu/docs/                          Documentation
- * @link https://github.com/AlexKratky/panx-framework/  Github Repository
- * @author Alex Kratky <info@alexkratky.cz>
- * @copyright Copyright (c) 2019 Alex Kratky
+ * @link https://github.com/AlexKratky/panx-utils/      Github Repository
+ * @author Alex Kratky <alex@panx.dev>
+ * @copyright Copyright (c) 2020 Alex Kratky
  * @license http://opensource.org/licenses/mit-license.php MIT License
  * @description Custom functions. Part of panx-framework.
  */
 
-declare (strict_types = 1);
+//declare (strict_types = 1);
 
 namespace AlexKratky;
 
@@ -215,7 +215,7 @@ class PanxUtils {
             $char = $json[$i];
 
             if ($char == '"') {
-                if (!preg_match('`"(\|"|.)*?"`s', $json, $m, null, $i)) {
+                if (!preg_match('`"(\|"|.)*?"`s', $json, $m, 0, $i)) {
                     return $json;
                 }
 
@@ -406,7 +406,7 @@ class PanxUtils {
     * Returns random string with specified $length.
     */
     public static function generateRandomString($length = 10) {
-        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', (int)ceil($length / strlen($x)))), 1, $length);
     }
 
     /**
